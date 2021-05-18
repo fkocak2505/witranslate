@@ -1,28 +1,61 @@
 package com.fkocak.witranslate
 
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fkocak.witranslate.base.BaseActivity
 import com.fkocak.witranslate.databinding.ActivityMainBinding
-import com.fkocak.witranslate.deleteAfter.CharactersAdapter
-import com.fkocak.witranslate.deleteAfter.CharactersViewModel
-import com.fkocak.witranslate.deleteAfter.utils.Resource
+import com.fkocak.witranslate.deleteAfter.model.Movie
+import com.fkocak.witranslate.deleteAfter.model.Result
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it)}),
-    CharactersAdapter.CharacterItemListener {
+class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inflate(it) }) {
 
-    private val viewModel: CharactersViewModel by viewModels()
-
-    private lateinit var adapter: CharactersAdapter
+    private val list = ArrayList<Movie>()
+    private val viewModel by viewModels<ListingViewModel>()
+    private lateinit var moviesAdapter: MoviesAdapter
 
     override fun initVM() {
-        setupRecyclerView()
-        setupObservers()
+        title = "Trending Movies"
+        val layoutManager = LinearLayoutManager(this)
+        binding.rvMovies.layoutManager = layoutManager
+
+        val dividerItemDecoration = DividerItemDecoration(
+            binding.rvMovies.context,
+            layoutManager.orientation
+        )
+
+        binding.rvMovies.addItemDecoration(dividerItemDecoration)
+        moviesAdapter = MoviesAdapter(this, list)
+        binding.rvMovies.adapter = moviesAdapter
+
+        viewModel.movieList.observe(this, Observer { result ->
+
+            when (result.status) {
+                Result.Status.SUCCESS -> {
+                    result.data?.results?.let { list ->
+                        moviesAdapter.updateData(list)
+                    }
+                    binding.loading.visibility = View.GONE
+                }
+
+                Result.Status.ERROR -> {
+                    result.message?.let {
+                        showError(it)
+                    }
+                    binding.loading.visibility = View.GONE
+                }
+
+                Result.Status.LOADING -> {
+                    binding.loading.visibility = View.VISIBLE
+                }
+            }
+
+        })
     }
 
     override fun initChangeFont() {
@@ -41,30 +74,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>({ ActivityMainBinding.inf
 
     }
 
-    private fun setupRecyclerView() {
-        adapter = CharactersAdapter(this)
-        binding.charactersRv.layoutManager = LinearLayoutManager(this@MainActivity)
-        binding.charactersRv.adapter = adapter
-    }
-
-    private fun setupObservers() {
-        viewModel.characters.observe(this, {
-            when (it.status) {
-                Resource.Status.SUCCESS -> {
-                    binding.progressBar.visibility = View.GONE
-                    if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
-                }
-                Resource.Status.ERROR ->
-                    Toast.makeText(this@MainActivity, it.message, Toast.LENGTH_SHORT).show()
-
-                Resource.Status.LOADING ->
-                    binding.progressBar.visibility = View.VISIBLE
-            }
-        })
-    }
-
-    override fun onClickedCharacter(characterId: Int) {
-        Toast.makeText(this@MainActivity, characterId.toString(), Toast.LENGTH_SHORT).show()
+    private fun showError(msg: String) {
+        Snackbar.make(binding.vParent, msg, Snackbar.LENGTH_INDEFINITE).setAction("DISMISS") {
+        }.show()
     }
 
 }
