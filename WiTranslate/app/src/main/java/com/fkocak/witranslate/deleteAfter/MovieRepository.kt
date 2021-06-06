@@ -37,37 +37,18 @@ class MovieRepository @Inject constructor(
                 emit(result)
             }
         }.flowOn(Dispatchers.IO)
-
-//        return flow {
-//            emit(fetchTrendingMoviesCached())
-//            emit(Result.loading())
-//            val result = movieRemoteDataSource.fetchTrendingMovies()
-//
-//            //Cache to database if response is successful
-//            if (result.status == Result.Status.SUCCESS) {
-//                result.data?.results?.let { it ->
-//                    movieDao.deleteAll(it)
-//                    movieDao.insertAll(it)
-//                }
-//            }
-//            emit(result)
-//        }.flowOn(Dispatchers.IO)
     }
 
-//    private fun fetchTrendingMoviesCached(): Result<TrendingMovieResponse>? =
-//            movieDao.getAll()?.let {
-//                Result.success(TrendingMovieResponse(it))
-//            }
-
     private fun fetchTrendingMoviesCached(): List<Movie>? {
-        movieDao.getAll()?.let {
-            return if (it.isEmpty())
-                null
-            else
-                it
-        } ?: run {
-            return null
-        }
+//        movieDao.getAll()?.let {
+//            return if (it.isEmpty())
+//                null
+//            else
+//                it
+//        } ?: run {
+//            return null
+//        }
+        return null
     }
 
     suspend fun fetchMovie(id: Int): Flow<Result<MovieDesc>> {
