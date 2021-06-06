@@ -1,4 +1,4 @@
-package com.fkocak.witranslate.deleteAfter.model
+package com.fkocak.witranslate.model
 
 import androidx.annotation.NonNull
 import androidx.room.Entity

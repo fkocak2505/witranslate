@@ -1,4 +1,4 @@
-package com.fkocak.witranslate.deleteAfter.network
+package com.fkocak.witranslate.network
 
 import okhttp3.Interceptor
 import okhttp3.Request

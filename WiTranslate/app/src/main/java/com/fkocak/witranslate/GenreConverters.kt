@@ -1,4 +1,4 @@
-package com.fkocak.witranslate.deleteAfter
+package com.fkocak.witranslate
 
 import androidx.room.TypeConverter
 

@@ -1,11 +1,10 @@
-package com.fkocak.witranslate.deleteAfter.network.service
+package com.fkocak.witranslate.network.service
 
-import com.fkocak.witranslate.deleteAfter.model.MovieDesc
-import com.fkocak.witranslate.deleteAfter.model.TrendingMovieResponse
+import com.fkocak.witranslate.model.MovieDesc
+import com.fkocak.witranslate.model.TrendingMovieResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 /**
  * Retrofit API Service

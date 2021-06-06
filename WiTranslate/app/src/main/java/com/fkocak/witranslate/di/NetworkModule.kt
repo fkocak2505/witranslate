@@ -1,8 +1,8 @@
-package com.fkocak.witranslate.deleteAfter.di
+package com.fkocak.witranslate.di
 
 import com.fkocak.witranslate.BuildConfig
 import com.fkocak.witranslate.config.Config
-import com.fkocak.witranslate.deleteAfter.network.AuthInterceptor
+import com.fkocak.witranslate.network.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

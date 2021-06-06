@@ -1,9 +1,9 @@
-package com.fkocak.witranslate.deleteAfter.utils
+package com.fkocak.witranslate.utils
 
 import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.IOException
-import com.fkocak.witranslate.deleteAfter.model.Error
+import com.fkocak.witranslate.model.Error
 
 /**
  * parses error response body

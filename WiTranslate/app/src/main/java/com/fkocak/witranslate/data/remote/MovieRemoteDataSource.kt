@@ -1,14 +1,13 @@
-package com.fkocak.witranslate.deleteAfter.data.remote
+package com.fkocak.witranslate.data.remote
 
-import com.fkocak.witranslate.deleteAfter.model.MovieDesc
-import com.fkocak.witranslate.deleteAfter.model.TrendingMovieResponse
-import com.fkocak.witranslate.deleteAfter.network.service.MovieService
-import com.fkocak.witranslate.deleteAfter.utils.ErrorUtils
+import com.fkocak.witranslate.model.MovieDesc
+import com.fkocak.witranslate.model.TrendingMovieResponse
+import com.fkocak.witranslate.network.service.MovieService
+import com.fkocak.witranslate.utils.ErrorUtils
 import retrofit2.Response
 import retrofit2.Retrofit
 import javax.inject.Inject
-import com.fkocak.witranslate.deleteAfter.model.Result
-import com.fkocak.witranslate.deleteAfter.model.Error
+import com.fkocak.witranslate.model.Result
 
 /**
  * fetches data from remote source

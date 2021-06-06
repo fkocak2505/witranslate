@@ -3,9 +3,8 @@ package com.fkocak.witranslate
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.fkocak.witranslate.base.vm.BaseVM
-import com.fkocak.witranslate.deleteAfter.MovieRepository
-import com.fkocak.witranslate.deleteAfter.model.Movie
-import com.fkocak.witranslate.deleteAfter.model.Result
+import com.fkocak.witranslate.model.Movie
+import com.fkocak.witranslate.model.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

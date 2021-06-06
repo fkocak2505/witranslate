@@ -1,7 +1,7 @@
-package com.fkocak.witranslate.deleteAfter.data.local
+package com.fkocak.witranslate.data.local
 
 import androidx.room.*
-import com.fkocak.witranslate.deleteAfter.model.Movie
+import com.fkocak.witranslate.model.Movie
 
 @Dao
 interface MovieDao {

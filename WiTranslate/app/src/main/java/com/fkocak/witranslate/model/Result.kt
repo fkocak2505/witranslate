@@ -1,4 +1,4 @@
-package com.fkocak.witranslate.deleteAfter.model
+package com.fkocak.witranslate.model
 
 data class Result<out T>(val status: Status, val data: T?, val error: Error?, val message: String?) {
 

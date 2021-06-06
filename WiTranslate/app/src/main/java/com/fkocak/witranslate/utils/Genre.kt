@@ -1,4 +1,4 @@
-package com.fkocak.witranslate.deleteAfter.utils
+package com.fkocak.witranslate.utils
 
 class Genre {
     companion object{

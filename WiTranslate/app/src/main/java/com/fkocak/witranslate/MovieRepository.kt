@@ -1,15 +1,15 @@
-package com.fkocak.witranslate.deleteAfter
+package com.fkocak.witranslate
 
-import com.fkocak.witranslate.deleteAfter.data.local.MovieDao
-import com.fkocak.witranslate.deleteAfter.data.remote.MovieRemoteDataSource
-import com.fkocak.witranslate.deleteAfter.model.Movie
-import com.fkocak.witranslate.deleteAfter.model.MovieDesc
-import com.fkocak.witranslate.deleteAfter.model.TrendingMovieResponse
+import com.fkocak.witranslate.data.local.MovieDao
+import com.fkocak.witranslate.data.remote.MovieRemoteDataSource
+import com.fkocak.witranslate.model.Movie
+import com.fkocak.witranslate.model.MovieDesc
+import com.fkocak.witranslate.model.TrendingMovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import com.fkocak.witranslate.deleteAfter.model.Result
+import com.fkocak.witranslate.model.Result
 import javax.inject.Inject
 
 /**

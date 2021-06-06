@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fkocak.witranslate.base.activity.BaseActivity
 import com.fkocak.witranslate.databinding.ActivityMainBinding
-import com.fkocak.witranslate.deleteAfter.model.Movie
+import com.fkocak.witranslate.model.Movie
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

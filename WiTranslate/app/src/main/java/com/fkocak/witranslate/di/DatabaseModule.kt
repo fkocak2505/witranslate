@@ -1,9 +1,9 @@
-package com.fkocak.witranslate.deleteAfter.di
+package com.fkocak.witranslate.di
 
 import android.content.Context
 import androidx.room.Room
-import com.fkocak.witranslate.deleteAfter.data.local.AppDatabase
-import com.fkocak.witranslate.deleteAfter.data.local.MovieDao
+import com.fkocak.witranslate.data.local.AppDatabase
+import com.fkocak.witranslate.data.local.MovieDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
