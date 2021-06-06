@@ -15,8 +15,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.viewbinding.ViewBinding
 import com.fkocak.witranslate.base.vm.BaseVM
-import com.google.android.material.snackbar.Snackbar
-import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import timber.log.Timber
 
 
@@ -40,7 +38,6 @@ abstract class BaseActivity<VB : ViewBinding>(open val bindingFactory: (LayoutIn
 //        setContentView(getLayoutID())
 
         binding = bindingFactory(layoutInflater)
-        createPB()
         setContentView(binding.root)
 
         initChangeFont()
@@ -90,6 +87,7 @@ abstract class BaseActivity<VB : ViewBinding>(open val bindingFactory: (LayoutIn
     }
 
     private fun showLoadingHUD() {
+        createPB()
         pb.visibility = View.VISIBLE
     }
 
@@ -106,10 +104,6 @@ abstract class BaseActivity<VB : ViewBinding>(open val bindingFactory: (LayoutIn
     protected fun toast(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
         Timber.i("ERRORR... $message")
-    }
-
-    override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
 }

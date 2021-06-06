@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.fkocak.witranslate.base.vm.BaseVM
 import com.fkocak.witranslate.model.Movie
 import com.fkocak.witranslate.model.Result
+import com.fkocak.witranslate.repositories.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

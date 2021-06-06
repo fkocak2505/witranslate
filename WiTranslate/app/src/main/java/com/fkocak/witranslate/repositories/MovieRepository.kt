@@ -1,4 +1,4 @@
-package com.fkocak.witranslate
+package com.fkocak.witranslate.repositories
 
 import com.fkocak.witranslate.data.local.MovieDao
 import com.fkocak.witranslate.data.remote.MovieRemoteDataSource
