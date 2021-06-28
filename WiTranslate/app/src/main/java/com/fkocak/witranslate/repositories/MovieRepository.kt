@@ -40,15 +40,15 @@ class MovieRepository @Inject constructor(
     }
 
     private fun fetchTrendingMoviesCached(): List<Movie>? {
-//        movieDao.getAll()?.let {
-//            return if (it.isEmpty())
-//                null
-//            else
-//                it
-//        } ?: run {
-//            return null
-//        }
-        return null
+        movieDao.getAll()?.let {
+            return if (it.isEmpty())
+                null
+            else
+                it
+        } ?: run {
+            return null
+        }
+//        return null
     }
 
     suspend fun fetchMovie(id: Int): Flow<Result<MovieDesc>> {

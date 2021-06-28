@@ -58,10 +58,30 @@ abstract class BaseActivity<VB : ViewBinding>(open val bindingFactory: (LayoutIn
         (binding.root as ConstraintLayout).addView(pb)
 
         cs.clone((binding.root as ConstraintLayout))
-        cs.connect(pb.id, ConstraintSet.TOP, (binding.root as ConstraintLayout).id, ConstraintSet.TOP)
-        cs.connect(pb.id, ConstraintSet.START, (binding.root as ConstraintLayout).id, ConstraintSet.START)
-        cs.connect(pb.id, ConstraintSet.END, (binding.root as ConstraintLayout).id, ConstraintSet.END)
-        cs.connect(pb.id, ConstraintSet.BOTTOM, (binding.root as ConstraintLayout).id, ConstraintSet.BOTTOM)
+        cs.connect(
+            pb.id,
+            ConstraintSet.TOP,
+            (binding.root as ConstraintLayout).id,
+            ConstraintSet.TOP
+        )
+        cs.connect(
+            pb.id,
+            ConstraintSet.START,
+            (binding.root as ConstraintLayout).id,
+            ConstraintSet.START
+        )
+        cs.connect(
+            pb.id,
+            ConstraintSet.END,
+            (binding.root as ConstraintLayout).id,
+            ConstraintSet.END
+        )
+        cs.connect(
+            pb.id,
+            ConstraintSet.BOTTOM,
+            (binding.root as ConstraintLayout).id,
+            ConstraintSet.BOTTOM
+        )
         cs.applyTo((binding.root as ConstraintLayout))
 
         // TO DO CHANGE AFTER..!
@@ -92,11 +112,13 @@ abstract class BaseActivity<VB : ViewBinding>(open val bindingFactory: (LayoutIn
     }
 
     private fun hideLoadingHUD() {
-        if (pb.visibility == View.VISIBLE)
-            pb.visibility = View.GONE
+        if (this::pb.isInitialized){
+            if (pb.visibility == View.VISIBLE)
+                pb.visibility = View.GONE
+        }
     }
 
-    fun checkForErrWarMes(errorMessage: String){
+    fun checkForErrWarMes(errorMessage: String) {
         toast(errorMessage)
     }
 
